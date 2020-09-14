@@ -1,0 +1,26 @@
+{
+    "name": "gahv/datapersistence",
+    "description": "Database abstraction component using PDO",
+    "keywords": [
+        "Database",
+        "PDO"
+    ],
+    "homepage": "https://www.gorkyandre.com.br",
+    "license": "MIT",
+    "authors": [
+        {
+        "name": "Gorky Velásquez",
+        "email": "gorkyandre@gmail.com",
+        "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "gahv\\DataPersistence\\": "src"
+        }
+    }
+}
