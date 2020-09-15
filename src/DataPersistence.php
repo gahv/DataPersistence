@@ -2,9 +2,6 @@
 
 namespace gahv\DataPersistence;
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 use Exception;
 use PDO;
 use PDOException;
@@ -76,6 +73,17 @@ abstract class DataPersistence
         $this->id_autoincrement = $id_autoincrement;
         $this->required = $required;
         $this->timestamps = $timestamps;
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     */
+    public function setConnInfo($user, $pwd, $db)
+    {
+        $this->db_user = $user;
+        $this->db_password = $pwd;
+        $this->db_name = $db;
     }
 
     /**
@@ -210,7 +218,6 @@ abstract class DataPersistence
     {
         try {
             $stmt = Connection::getInstance($this->db_user, $this->db_password, $this->db_name);
-
             $stmt = $stmt->prepare($this->statement . $this->group . $this->order . $this->limit . $this->offset);
             $stmt->execute($this->params);
 
