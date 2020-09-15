@@ -1,19 +1,21 @@
 # Data Persistence
 
-## Documentation
+###### Baseado no componente [Data Layer @CoffeeCode](https://github.com/robsonvleite/datalayer)
+
+## Documentação
 
 #### Connection
 
-Para realizar a conexão com o banco é necessário informar os parâmetros da constante DB_CONFIG
+Para criar a conexão padrão com o banco dedados é necessário informar os parâmetros da constante DB_CONFIG
 
 ```php
-define("DATA_LAYER_CONFIG", [
+define("DB_CONFIG", [
     "driver" => "mysql",
     "host" => "localhost",
     "port" => "3306",
-    "dbname" => "datalayer_example",
-    "username" => "root",
-    "passwd" => "",
+    "dbname" => "database",
+    "username" => "user",
+    "passwd" => "password",
     "appname" => "DataPersistence",
     "options" => [
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
