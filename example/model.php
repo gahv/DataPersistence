@@ -16,7 +16,7 @@ class Empresa extends DataPersistence
 $dados = new Empresa();
 
 // Chage connection string in runtime
-$dados->setConnInfo("sa", "*tec032020*", "TECNOCONTAS");
+$dados->setConnInfo("new_user", "new_pwd", "new_database");
 
 // Returns first record
 $dados = $dados->find("", "", "cnpj, razao_social")->fetch();
