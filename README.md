@@ -6,7 +6,7 @@
 
 #### Connection
 
-Para criar a conexão padrão com o banco dedados é necessário informar os parâmetros da constante DB_CONFIG
+Para criar a conexão padrão com o banco de dados é necessário informar os parâmetros da constante DB_CONFIG
 
 ```php
 define("DB_CONFIG", [
