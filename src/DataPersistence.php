@@ -45,6 +45,9 @@ abstract class DataPersistence
     /** @var int */
     protected $offset;
 
+    /** @var int */
+    protected $fetchnext;
+
     /** @var \PDOException|null */
     protected $fail;
 
@@ -201,12 +204,42 @@ abstract class DataPersistence
     }
 
     /**
+     * @param int $top
+     * @return DataPersistence|null
+     */
+    public function top(int $top): ?DataPersistence
+    {
+        $this->top = " TOP {$top} ";
+        return $this;
+    }
+
+    /**
      * @param int $offset
      * @return DataPersistence|null
      */
     public function offset(int $offset): ?DataPersistence
     {
         $this->offset = " OFFSET {$offset}";
+        return $this;
+    }
+
+    /**
+     * @param int $offset SQL Server
+     * @return DataPersistence|null
+     */
+    public function offset_rows(int $offset): ?DataPersistence
+    {
+        $this->offset = " OFFSET {$offset} ROWS ";
+        return $this;
+    }
+
+    /**
+     * @param int $fetchnext SQL Server
+     * @return DataPersistence|null
+     */
+    public function fetch_next(int $fetchnext): ?DataPersistence
+    {
+        $this->fetch_next = " FETCH NEXT {$fetchnext} ROWS ONLY ";
         return $this;
     }
 
