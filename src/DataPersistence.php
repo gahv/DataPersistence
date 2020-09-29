@@ -43,6 +43,9 @@ abstract class DataPersistence
     protected $limit;
 
     /** @var int */
+    protected $top;
+
+    /** @var int */
     protected $offset;
 
     /** @var int */
@@ -153,13 +156,19 @@ abstract class DataPersistence
      */
     public function find(?string $terms = null, ?string $params = null, string $columns = "*"): DataPersistence
     {
+        $this->statement = "SELECT ";
+
+        if ($this->top) {
+            $this->statement .= $this->top . " ";
+        }
+
         if ($terms) {
-            $this->statement = "SELECT {$columns} FROM {$this->entity} WHERE {$terms}";
+            $this->statement .= " {$columns} FROM {$this->entity} WHERE {$terms}";
             parse_str($params, $this->params);
             return $this;
         }
 
-        $this->statement = "SELECT {$columns} FROM {$this->entity}";
+        $this->statement .= " {$columns} FROM {$this->entity}";
         return $this;
     }
 
