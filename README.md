@@ -2,6 +2,8 @@
 
 ###### Baseado no componente [Data Layer @CoffeeCode](https://github.com/robsonvleite/datalayer)
 
+###### Adaptado para alterar os dados de conexão em tempo de execução e dar suporte a algumas funções do SQL Server
+
 ## Documentação
 
 #### Connection
